@@ -1,0 +1,23 @@
+// ============================================
+// Main SCSS File
+// GTG Perfumes Website
+// ============================================
+
+// Import Google Fonts
+@use 'sass:color';
+
+// Core - load without namespace for global access
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Base styles
+@use 'base';
+
+// Components
+@use 'header';
+@use 'hero';
+@use 'product';
+@use 'collection';
+@use 'stats';
+@use 'why-section';
+@use 'footer';

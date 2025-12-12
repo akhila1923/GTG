@@ -1,0 +1,230 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Hero Section Styles - Mobile First
+// ============================================
+
+.hero {
+  position: relative;
+  min-height: auto;
+  padding-bottom: 40px;
+  padding-top: 50px;
+  background: linear-gradient(135deg, $dark-green-1 0%, $forest-green 100%);
+  overflow: hidden;
+  
+  @include sm-tablet {
+    min-height: 500px;
+    padding-bottom: 0;
+  }
+  
+  @include md-tablet {
+    height: 100vh;
+  }
+  
+  // Light hero variant
+  &--light {
+    background: none;
+    
+    .hero__stat-number {
+      color: $dark-green-2;
+    }
+    
+    .hero__stat-label {
+      color: $dark-green-1;
+    }
+  }
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__container {
+    position: relative;
+    z-index: 2;
+    gap: 40px;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding-xs;
+    min-height: auto;
+    height: 100%;
+    
+    @include sm-tablet {
+      text-align: left;
+      min-height: 500px;
+      padding: 0 $container-padding-sm;
+      max-width: $container-max-width-md;
+    }
+    
+    @include md-tablet {
+      min-height: 600px;
+      padding: 0 $container-padding;
+    }
+    @include xl-desktop{
+      max-width: $container-max-width;
+    }
+  }
+  
+  &__content {
+    flex: 1;
+    max-width: 100%;
+    order: 1;
+    margin-top: 30px;
+    
+    @include sm-tablet {
+      max-width: 550px;
+      order: unset;
+      margin-top: 116.59px;
+    }
+  }
+  
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $gradient-bg-light;
+    padding: 5px 12px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    
+    @include sm-tablet {
+      gap: 11.75px;
+      padding: 8.75px 19.75px;
+      margin-bottom: 27px;
+      font-size: 1rem;
+    }
+    
+    span {
+      font-size: inherit;
+      line-height: 1.1;
+      font-weight: 300;
+      color: $white;
+    }
+    svg {
+      width: 14px;
+      
+      @include sm-tablet {
+        width: 17px;
+      }
+    }
+  }
+  
+  
+  &__title {
+    @include heading-style;
+    font-size: 2rem;
+    color: $dark-green-1;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    letter-spacing: -1.33px;
+    
+    @include sm-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include md-tablet {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    
+    @include lg-desktop {
+      font-size: 3rem;
+    }
+    
+    @include xl-desktop {
+      font-size: 3.5rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1rem;
+    color: rgba($white, 0.9);
+    margin-bottom: 24px;
+    line-height: 1.6;
+    
+    @include sm-tablet {
+      font-size: 1.125rem;
+      margin-bottom: 30px;
+    }
+  }
+  
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+    
+    @include sm-tablet {
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+    
+    @include md-tablet {
+      flex-wrap: nowrap;
+      gap: 80px;
+    }
+  }
+  
+  &__stat {
+    text-align: center;
+    
+    @include sm-tablet {
+      text-align: left;
+    }
+  }
+  
+  &__stat-number {
+    @include heading-style;
+    font-size: 2rem;
+    color: $gold-brown;
+    background: $gradient-text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 10px;
+    
+    @include md-tablet {
+      font-size: 2.5rem;
+    }
+    
+    @include lg-desktop {
+      font-size: 4.5rem;
+    }
+  }
+  
+  &__stat-label {
+    font-size: 0.8rem;
+    color: $forest-green;
+    font-weight: 300;
+    line-height: 1;
+    
+    @include sm-tablet {
+      font-size: 1.375rem;
+    }
+  }
+  
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    
+    .btn {
+      padding: 7px 28px;
+      @include sm-tablet {
+        padding: 9.4px 48px;
+      }
+    }
+  }
+}

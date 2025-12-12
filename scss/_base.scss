@@ -1,0 +1,181 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Base Styles & Reset - Mobile First
+// ============================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $charcoal;
+  background-color: $white;
+  overflow-x: hidden;
+  
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color $transition-fast;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Container - Mobile First
+.container {
+  width: 100%;
+  max-width: 1324.81px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  @include md-tablet {
+    padding: 0 $container-padding;
+  }
+  
+  @include lg-desktop {
+    max-width: 1126px;
+  }
+}
+
+// Section spacing - Mobile First
+.section {
+  padding: 40px 0;
+  
+  @include md-tablet {
+    padding: 60px 0;
+  }
+  
+  @include md-tablet {
+    padding: 80px 0;
+  }
+}
+
+// Section title - Mobile First
+.section-title {
+  @include heading-style;
+  font-size: 1.75rem;
+  color: $dark-green-1;
+  margin-bottom: 24px;
+  text-align: center;
+  
+  @include md-tablet {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  @include md-tablet {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+}
+
+// Button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  font-family: $font-primary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: $border-radius-xxl;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  @include sm-tablet {
+    font-size: 1.138rem;
+  }
+  
+  &--primary {
+    position: relative;
+    background: $gradient-bg;
+    color: $white;
+    overflow: hidden;
+    z-index: 1;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $dark-green-2;
+      transition: bottom 0.5s ease;
+      z-index: -1;
+    }
+    
+    &:hover {
+      &::before {
+        bottom: 0;
+      }
+    }
+  }
+  
+  &--secondary {
+    background-color: transparent;
+    color: $dark-green-2;
+    border: 2px solid $dark-green-2;
+    
+    &:hover {
+      background-color: $dark-green-2;
+      color: $white;
+    }
+  }
+  
+  &--gold {
+    background-color: $gold-brown;
+    color: $white;
+    
+    &:hover {
+      background-color: $gold-brown-dark;
+    }
+  }
+}
+
+// Screen reader only
+.sr-only {
+  @include visually-hidden;
+}

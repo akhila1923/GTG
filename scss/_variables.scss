@@ -1,0 +1,60 @@
+// ============================================
+// Design Tokens - Variables
+// ============================================
+
+// Colors
+$dark-blue: #162456;
+$dark-green-1: #032E15;
+$dark-green-2: #016630;
+$forest-green: #0D542B;
+$green: #008236;
+$bright-green: #00C950;
+$white: #FFFFFF;
+$gray-light: #B8B8B8;
+$gray: #919798;
+$gray-dark: #6F7577;
+$silver: #CDCDCD;
+$gray-medium: #666666;
+$gray-suttle: #f9f9f9;
+$gray-light-2: #F0EEE6;
+$charcoal: #322D2D;
+$gold-brown: #653B09;
+$gold-brown-dark: #4d2c07;
+$black: #000000;
+$orange-light: #FEF3E4;
+
+// Gradients
+$gradient-text: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+$gradient-bg: linear-gradient(180deg, #032E15 0%, #016630 100%);
+$gradient-bg-horizondal: linear-gradient(270deg, #032E15 0%, #008236 51.92%, #00C950 100%);
+$gradient-bg-light: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+$gradient-border: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+
+
+// Fonts
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Oxanium', cursive;
+
+// Container widths
+$container-max-width: 1454px;
+$container-max-width-md: 1254px;
+$container-padding: 63px;
+$container-padding-sm: 30px;
+$container-padding-xs: 15px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Border radius
+$border-radius-sm: 4.95px;
+$border-radius-md: 6.07px;
+$border-radius-lg: 15.17px;
+$border-radius-xl: 15px;
+$border-radius-xxl: 30px;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);

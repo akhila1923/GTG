@@ -1,0 +1,238 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Footer Styles - Mobile First
+// ============================================
+
+.footer {
+  background-color: $dark-green-1;
+  color: $white;
+  position: relative;
+  padding: 40px 0;
+  
+  @include sm-tablet {
+    padding: 80px 0;
+  }
+  @include md-tablet {
+    padding: 75.52px 0 93.73px;
+  }
+  
+  &__container {
+    margin: 0 auto;
+    padding: 0 $container-padding-xs;
+    
+    @include sm-tablet{
+      padding: 0 $container-padding-sm;
+    }
+
+    @include md-tablet{
+      padding: 0 85px;
+    }
+  }
+  
+  &__main {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    
+    @include mobile {
+      gap: 30px 40px;
+      text-align: left;
+    }
+    
+    @include md-tablet {
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
+    
+    @include lg-desktop {
+      gap: 40px;
+    }
+  }
+  
+  // Logo
+  &__brand {
+    margin-bottom: 14px;
+  }
+  
+  &__logo {
+    font-family: $font-primary;
+    font-size: 2rem;
+    line-height: 1.9;
+    font-weight: 700;
+    color: $white;
+    
+    @include sm-tablet{
+      font-size: 2.645rem;
+    }
+
+    &:hover {
+      color: $bright-green;
+    }
+  }
+  
+  // Navigation
+  &__nav {
+    margin-top: 22px;
+    width: calc(100% / 3 - 27px);
+    @include md-tablet {
+      width: calc(100% - 506px);
+    }
+  }
+  
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    @include sm-tablet {
+      gap: 16px;
+    }
+  }
+  
+  &__link {
+    font-size: 0.885rem;
+    line-height: 1.5;
+    color: $white;
+    font-family: $font-secondary;
+    font-weight: 300;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $bright-green;
+    }
+  }
+  
+  // Social Links
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: 12.14px;
+    margin-top: 22px;
+
+    @include md-tablet {
+      padding-right: 100px;
+    }
+    @media screen and (min-width: 1300px) {
+      padding-right: 150px;
+    }
+    @media screen and (min-width: 1400px) {
+      padding-right: 220px;
+    }
+  }
+  
+  &__social-link {
+    display: flex;
+    gap: 10px;
+    font-size: 0.885rem;
+    font-weight: 300;
+    font-family: $font-secondary;
+    color: $white;
+    transition: color $transition-fast;
+    
+    svg {
+      flex-shrink: 0;
+    }
+    
+    &:hover {
+      color: $bright-green;
+      
+      img {
+        opacity: 1;
+      }
+    }
+  }
+  
+  // Newsletter
+  &__newsletter {
+    max-width: 100%;
+    width: 506px;
+    flex-shrink: 0;
+    
+    @include sm-tablet {
+      width: auto;
+    }
+
+    @include md-tablet {
+      width: 350px;
+    }
+    
+    @include lg-desktop {
+      width: 506px;
+    }
+  }
+  
+  &__newsletter-text {
+    font-size: 1.011rem;
+    line-height: 1.5;
+    color: $orange-light;
+    margin-bottom: 24.54px;
+    font-weight: 700;
+  }
+  
+  &__newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16.18px;
+    margin-bottom: 16.18px;
+    @include mobile {
+      flex-direction: row;
+    }
+  }
+  
+  &__newsletter-input {
+    flex: 1;
+    padding: 12.13px;
+    background-color: transparent;
+    border: 1px solid $white;
+    color: $white;
+    font-size: 1.011rem;
+    height: 48.27px;
+    font-weight: 300;
+
+    &::placeholder{
+      color: $white;
+      font-weight: 300;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: $bright-green;
+    }
+  }
+  
+  &__newsletter-btn {
+    padding: 12.14px 24.27px;
+    background-color: $gold-brown;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 1.011rem;
+    color: $white;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    white-space: nowrap;
+    height: 48.27px;
+    
+    &:hover {
+      background-color: $bright-green;
+    }
+  }
+  
+  &__newsletter-disclaimer {
+    font-size: 0.759rem;
+    color: $white;
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: $font-secondary;
+    
+    a {
+      text-decoration: underline;
+      
+      &:hover {
+        color: $bright-green;
+      }
+    }
+  }
+}

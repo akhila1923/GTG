@@ -1,0 +1,710 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Product Section Styles - Mobile First
+// ============================================
+
+.product {
+  padding: 40px 0;
+  background-color: $white;
+  
+  @include sm-tablet {
+    padding: 80px 0;
+  }
+  
+  @include md-tablet {
+    padding: 146px 0;
+  }
+  
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding-xs;
+    @include sm-tablet{
+      max-width: $container-max-width-md;
+      padding: 0 $container-padding-sm;
+    }
+
+    @include md-tablet{
+      padding: 0 $container-padding;
+    }
+
+    @include xl-desktop{
+      max-width: $container-max-width;
+    }
+  }
+  
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    align-items: start;
+    
+    @include sm-tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    @include md-tablet {
+      gap: 60px;
+    }
+    @include lg-desktop{
+      gap: 108px;
+    }
+  }
+  
+  // ==========================================
+  // Gallery Styles
+  // ==========================================
+  &__gallery {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    @include md-tablet {
+      max-width: 100%;
+    }
+  }
+  
+  &__main-image {
+    position: relative;
+    width: 100%;
+    background-color: #e8e8e8;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    height: 400px;
+    margin-bottom: 30px;
+    @include md-tablet {
+      height: 673px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity $transition-normal;
+    }
+  }
+  
+  &__nav-arrow {
+    @include button-reset;
+    @include flex-center;
+    position: absolute;
+    bottom: 18.32px;
+    width: 39px;
+    height: 39px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: $shadow-md;
+    transition: all $transition-normal;
+    z-index: 5;
+    border: 1px solid $dark-green-1;
+    box-shadow: none;
+    
+    &:hover {
+      background-color: $dark-green-1;
+      svg{
+        path{
+          fill: $white;
+        }
+      }
+    }
+    
+    &--prev {
+      left: 28.91px;
+    }
+    
+    &--next {
+      right: 28.91px;
+    }
+  }
+  
+  &__dots {
+    position: absolute;
+    bottom: 33.72px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8.09px;
+    z-index: 5;
+  }
+  
+  &__dot {
+    @include button-reset;
+    width: 8.09px;
+    height: 8.09px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all $transition-fast;
+    border: 1px solid $dark-green-1;
+    
+    &.active,
+    &:hover {
+      background-color: $dark-green-1;
+    }
+  }
+  
+  &__thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    
+    @include md-tablet {
+      gap: 29px;
+    }
+  }
+  
+  &__thumbnail {
+    aspect-ratio: 1 / 1;
+    border-radius: $border-radius-xl;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color $transition-fast;
+    background-color: #f5f5f5;
+    transition: all .5s;
+    
+    &.active,
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // ==========================================
+  // Details Styles
+  // ==========================================
+  
+  &__title {
+    @include heading-style;
+    font-size: 1.875rem;
+    line-height: 1;
+    color: $dark-green-1;
+    margin-bottom: 8px;
+    
+    @include md-tablet {
+      font-size: 2.25rem;
+    }
+  }
+  
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    @include md-tablet {
+      margin-bottom: 21.45px;
+    }
+  }
+  
+  &__stars {
+    display: flex;
+    gap: 4.37px;
+  }
+  
+  &__rating-text {
+    font-size: 0.813rem;
+    color: $dark-green-1;
+  }
+  
+  &__description {
+    font-size: 0.875rem;
+    color: $dark-green-1;
+    line-height: 1.2;
+    font-weight: 300;
+    margin-bottom: 15px;
+    @include md-tablet {
+      font-size: 1.011rem;
+      margin-bottom: 31px;
+    }
+  }
+  
+  // ==========================================
+  // Subscription Options
+  // ==========================================
+  &__options {
+    margin-bottom: 24px;
+  }
+  
+  &__subscription-option {
+    border: 1px solid $gray-light;
+    border-radius: $border-radius-md;
+    margin-bottom: 11px;
+    overflow: hidden;
+    transition: border-color $transition-fast;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    // Collapsed class is added when input is checked
+    &.collapsed {
+      // Add any styling needed when the option is checked
+    }
+  }
+  
+  &__popular-tag {
+    background: $gradient-bg-horizondal;
+    color: $white;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px 15px;
+    margin-bottom: 7px;
+    @include md-tablet {
+      font-size: 1.264rem;
+      padding: 11.5px 15px;
+    }
+  }
+  
+  &__subscription-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    cursor: pointer;
+    
+    @include md-tablet {
+      padding: 13px 17.32px 13px 22.18px;
+    }
+  }
+  
+  &__subscription-label {
+    display: flex;
+    align-items: center;
+    gap: 11.84px;
+    cursor: pointer;
+    
+    input[type="radio"] {
+      @include visually-hidden;
+      
+      &:checked + .product__radio-custom {
+        .product__radio-custom-active {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+  }
+  
+  &__radio-custom {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    background: $gradient-border;
+    padding: 1px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      border-radius: 50%;
+      background-color: $white;
+    }
+    
+    &-active {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 10.2px;
+      height: 10.2px;
+      background: $gradient-border;
+      border-radius: 50%;
+      transition: transform $transition-fast;
+      z-index: 1;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 50%;
+        background: $gradient-border;
+      }
+    }
+  }
+  
+  &__subscription-name {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.1;
+    color: $dark-green-1;
+    @include mobile {
+      font-size: 1rem;
+    }
+    @include md-tablet {
+      font-size: 1.25rem;
+    }
+  }
+  
+  &__subscription-price {
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.9px;
+    color: $dark-green-1;
+    @include mobile {
+      font-size: 1rem;
+    }
+    @include md-tablet {
+      font-size: 1.25rem;
+    }
+    
+    .product__price-old {
+      font-weight: 300;
+      font-size: 0.875rem;
+      color: $gray-light;
+      text-decoration: line-through;
+      margin-left: 10.11px;
+      @include mobile {
+        font-size: 1rem;
+      }
+      @include md-tablet {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  
+  
+  &__subscription-content {
+    animation: slideDown 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease;
+    padding: 0 15px;
+
+    @include md-tablet {
+      padding: 0 25px;
+    }
+
+    @include lg-desktop{
+      padding: 0 31.08px 0 53.21px;
+    }
+    
+    &-inner {
+      border-top: 1px solid $gray;
+      padding: 18.81px 0 27px;
+    }
+  }
+  
+  // Show content when input is checked
+  &__subscription-option.collapsed {
+    .product__subscription-content {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+    }
+  }
+  
+  // ==========================================
+  // Fragrance Selection
+  // ==========================================
+  &__fragrance-select {
+    margin-bottom: 27.77px;
+  }
+  
+  &__fragrance-title {
+    display: block;
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $dark-green-1;
+    margin-bottom: 12px;
+    @include md-tablet {
+      font-size: 1.011rem;
+    }
+  }
+  
+  &__fragrance-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11.62px;
+    width: 100%;
+  }
+  
+  &__fragrance-option {
+    cursor: pointer;
+    padding: 9.14px 8.21px 10px;
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+    position: relative;
+    background: $gray-suttle;
+    width: calc(33.33% - 9.21px);
+    @include md-tablet {
+      width: calc(25% - 8px);
+    }
+    
+    .radio-wrapper{
+      display: flex;
+      align-items: center;
+      gap: 6.86px;
+      margin-bottom: 12.81px;
+
+      input[type="radio"] {
+        @include visually-hidden;
+        
+        &:checked ~ img {
+          transform: scale(1.05);
+        }
+        &:checked + .product__radio-custom {
+          .product__radio-custom-active {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+  
+      .product__radio-custom{
+        display: inline-block;
+        width: 9.9px;
+        height: 9.9px;
+        border-radius: 50%;
+        position: relative;
+        background: $gradient-border;
+        padding: 1px;
+        
+        &::before {
+          background-color: $gray-suttle;
+        }
+        
+        &-active {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          width: 5.5px;
+          height: 5.5px;
+          background: $gradient-border;
+          border-radius: 50%;
+          transition: transform $transition-fast;
+          z-index: 1;
+          opacity: .5;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            border-radius: 50%;
+            background: $gradient-border;
+          }
+        }
+      }
+    }
+    
+    img {
+      width: 45px;
+      height: 60px;
+      object-fit: contain;
+      margin: 0 auto 8px;
+      transition: transform $transition-fast;
+      
+      @include mobile {
+        width: 60px;
+        height: 80px;
+      }
+    }
+  }
+  
+  &__fragrance-badge {
+    position: absolute;
+    top: -7px;
+    right: 0;
+    background: $gradient-bg;
+    color: $white;
+    font-size: 0.461rem;
+    line-height: 1;
+    font-weight: 700;
+    padding: 2.4px 5.8px;
+    border-radius: $border-radius-sm 0;
+    white-space: nowrap;
+  }
+  
+  &__fragrance-name {
+    display: block;
+    font-size: 0.825rem;
+    line-height: 1;
+    font-weight: 300;
+    background: $gradient-border;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  // ==========================================
+  // What's Included
+  // ==========================================
+  &__included {
+    margin-bottom: 20px;
+  }
+  
+  &__included-title {
+    display: block;
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: $dark-green-1;
+    margin-bottom: 15.18px;
+    @include md-tablet {
+      font-size: 1.011rem;
+    }
+  }
+  
+  &__included-boxes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+    @include mobile {
+      flex-direction: row;
+      gap: 15.24px;
+    }
+  }
+  
+  &__included-box {
+    border: 1px solid $gray;
+    border-radius: $border-radius-md;
+    padding: 8.23px 8px 20px;
+    text-align: center;
+    min-width: 120px;
+    @include md-tablet {
+      min-width: 135px;
+      padding: 8.23px 11.46px 36.17px;
+    }
+    @include lg-desktop{
+      min-width: 166px;
+      padding: 8.23px 11.46px 36.17px;
+    }
+  }
+  
+  &__included-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1;
+    color: $gray-dark;
+    margin-bottom: 13.13px;
+    text-align: left;
+    @include md-tablet {
+      font-size: 1.011rem;
+    }
+    
+    strong {
+      color: $dark-green-1;
+      font-weight: 700;
+    }
+  }
+  
+  &__included-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    min-height: 70px;
+    @include md-tablet {
+      gap: 15px;
+    }
+    @include lg-desktop{
+      gap: 46px;
+    }
+    
+    img {
+      object-fit: contain;
+    }
+    
+    &--single img {
+      width: 74px;
+      height: 144px;
+      @include md-tablet{
+        width: 84px;
+      }
+    }
+    
+    &--multiple {
+      padding: 0;
+      @include lg-desktop{
+        padding: 0 23.5px;
+      }
+      img {
+        width: 55px;
+        height: 94px;
+        margin-top: 21px;
+      }
+    }
+  }
+  
+  // ==========================================
+  // Benefits List
+  // ==========================================
+  &__benefits {
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 8px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      img {
+        flex-shrink: 0;
+        width: 14px;
+        height: 14px;
+        margin-top: 2px;
+      }
+      
+      span{
+        font-size: 0.875rem;
+        font-weight: 300;
+        line-height: 1.4;
+        color: $dark-green-1;
+        strong {
+          font-weight: 700;
+        }
+      }
+
+    }
+  }
+  
+  // ==========================================
+  // Add to Cart
+  // ==========================================
+  &__add-to-cart {
+    width: 100%;
+    padding: 12px 32px;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: 30px;
+    @include mobile {
+      font-size: 1.138rem;
+      padding: 17px 32px;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

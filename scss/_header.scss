@@ -1,0 +1,537 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// Header Styles - Mobile First
+// ============================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $dark-green-1;
+  padding: 12px 0;
+  transition: background-color $transition-normal, box-shadow $transition-normal;
+  
+  &.scrolled {
+    box-shadow: $shadow-md;
+  }
+  
+  // Light header variant (transparent)
+  &--light {
+    background-color: transparent;
+    
+    .header__nav-link {
+      color: $dark-blue;
+      
+      &:hover {
+        color: $dark-green-2;
+      }
+    }
+    
+    .header__search img {
+      filter: none;
+    }
+    
+    .header__hamburger span {
+      background-color: $dark-green-1;
+    }
+    
+    &.scrolled {
+      background-color: rgba($white, 0.95);
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  &__container {
+    @include flex-between;
+    align-items: center;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding-xs;
+    @include sm-tablet{
+      max-width: $container-max-width-md;
+      padding: 0 $container-padding-sm;
+    }
+
+    @include md-tablet{
+      padding: 0 $container-padding;
+    }
+
+    @include xl-desktop{
+      max-width: $container-max-width;
+    }
+  }
+  
+  &__logo {
+    flex-shrink: 0;
+    padding: 6px 12px 6px 0;
+    
+    @include sm-tablet {
+      padding: 8px 16px 8px 0;
+    }
+      
+    span {
+      font-family: $font-primary;
+      font-size: 1.25rem;
+      line-height: 1;
+      font-weight: 800;
+      background: $gradient-text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      @include sm-tablet {
+        font-size: 1.875rem;
+      }
+    }    
+  }
+  
+  &__nav {
+    // Mobile: slide-out menu
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: $white;
+    padding: 80px 30px 30px;
+    transition: right $transition-normal;
+    z-index: 1001;
+    overflow-y: auto;
+    
+    &.active {
+      right: 0;
+    }
+    
+    // Desktop: inline nav
+    @include md-tablet {
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      padding: 0;
+      overflow: visible;
+    }
+  }
+  
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    
+    @include md-tablet {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    @include lg-desktop {
+      gap: 32.36px;
+    }
+  }
+  
+  &__nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba($dark-green-1, 0.1);
+    
+    @include md-tablet {
+      width: auto;
+      border-bottom: none;
+    }
+    
+    &--dropdown {
+      position: relative;
+      
+      .header__nav-link {
+        display: flex;
+        align-items: center;
+        gap: 9.82px;
+      }
+      
+      &.active .header__dropdown-menu {
+        @include md-tablet {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      
+      &.active .header__dropdown-icon {
+        @include md-tablet {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  
+  &__dropdown-icon {
+    width: 12.74px;
+    height: 7.21px;
+    transition: transform $transition-normal;
+  }
+  
+  &__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-lg;
+    min-width: 200px;
+    padding: 8px 0;
+    margin-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity $transition-normal, visibility $transition-normal, transform $transition-normal;
+    z-index: 1002;
+    list-style: none;
+    
+    @include md-tablet {
+      display: block;
+    }
+    
+    // Mobile: show as regular list items
+    @media (max-width: 991.98px) {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background-color: transparent;
+      padding: 0;
+      margin-top: 0;
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+  
+  &__dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    font-family: $font-primary;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: $dark-green-1;
+    text-decoration: none;
+    transition: background-color $transition-fast, color $transition-fast;
+    
+    &:hover {
+      background-color: rgba($dark-green-1, 0.05);
+      color: $bright-green;
+    }
+    
+    @media (max-width: 991.98px) {
+      padding: 12px 0 12px 30px;
+      border-bottom: none;
+      
+      &:hover {
+        background-color: transparent;
+        color: $bright-green;
+      }
+    }
+  }
+  
+  &__nav-link {
+    display: block;
+    font-family: $font-primary;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $dark-green-1;
+    padding: 15px 0;
+    position: relative;
+    transition: color $transition-fast;
+    
+    @include md-tablet {
+      display: inline;
+      font-size: 1.011rem;
+      color: $white;
+      padding: 0;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $bright-green;
+        transition: width $transition-normal;
+      }
+      
+      &:hover {
+        color: $bright-green;
+        
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  &__search {
+    @include button-reset;
+    @include flex-center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transition: background-color $transition-fast;
+    
+    @include sm-tablet {
+      width: 38px;
+      height: 38px;
+    }
+    
+    img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+      
+      @include sm-tablet {
+        width: 22px;
+        height: 22px;
+      }
+    }
+    
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+    
+    &.active {
+      background-color: rgba($black, 0.15);
+    }
+  }
+  
+  &__search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.7);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-normal, visibility $transition-normal;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  &__search-popup-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    padding: 20px $container-padding-xs;
+    box-shadow: $shadow-lg;
+    transform: translateY(-100%);
+    transition: transform $transition-normal;
+    
+    @include sm-tablet {
+      padding: 30px $container-padding-sm;
+    }
+    
+    @include md-tablet {
+      padding: 40px $container-padding;
+    }
+  }
+  
+  &__search-popup.active &__search-popup-content {
+    transform: translateY(0);
+  }
+  
+  &__search-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  &__search-input {
+    flex: 1;
+    padding: 15px 20px;
+    font-family: $font-primary;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $dark-green-1;
+    border: 2px solid $gray-light;
+    border-radius: $border-radius-lg;
+    outline: none;
+    transition: border-color $transition-fast;
+    
+    @include sm-tablet {
+      font-size: 1.125rem;
+      padding: 18px 24px;
+    }
+    
+    &:focus {
+      border-color: $bright-green;
+    }
+    
+    &::placeholder {
+      color: $gray;
+    }
+  }
+  
+  &__search-submit {
+    @include button-reset;
+    @include flex-center;
+    width: 50px;
+    height: 50px;
+    background: $gradient-bg;
+    border-radius: $border-radius-lg;
+    transition: opacity $transition-fast;
+    flex-shrink: 0;
+    
+    @include sm-tablet {
+      width: 60px;
+      height: 60px;
+    }
+    
+    img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+      
+      @include sm-tablet {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  
+  &__shop-btn {
+    display: none;
+    
+    @include sm-tablet {
+      display: inline-flex;
+      padding: 15.4px 27.81px;
+      font-size: 1.138rem;
+      line-height: 1;
+      font-weight: 500;
+      border-radius: 25px;
+      background: $gradient-bg;
+    }
+  }
+  
+  &__hamburger {
+    @include button-reset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    gap: 5px;
+    z-index: 1002;
+    
+    @include md-tablet {
+      display: none;
+    }
+    
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $white;
+      transition: all $transition-normal;
+      
+      &:nth-child(1) {
+        transform-origin: center;
+      }
+      
+      &:nth-child(2) {
+        transform-origin: center;
+      }
+      
+      &:nth-child(3) {
+        transform-origin: center;
+      }
+    }
+    
+    &.active {
+      span {
+        background-color: $dark-green-1;
+      }
+      
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+  
+  &__close {
+    @include button-reset;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    
+    @include sm-tablet {
+      display: none;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &__overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-normal;
+    
+    &.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+    
+    @include sm-tablet {
+      display: none;
+    }
+  }
+}
