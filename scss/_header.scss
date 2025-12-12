@@ -72,6 +72,10 @@
     @include sm-tablet {
       padding: 8px 16px 8px 0;
     }
+    
+    &:hover {
+      transform: scale(1.05);
+    }
       
     span {
       font-family: $font-primary;
@@ -104,6 +108,7 @@
     
     &.active {
       right: 0;
+      animation: slideInRight 0.3s ease-out;
     }
     
     // Desktop: inline nav
@@ -190,6 +195,7 @@
     transition: opacity $transition-normal, visibility $transition-normal, transform $transition-normal;
     z-index: 1002;
     list-style: none;
+    animation: slideDown 0.3s ease-out;
     
     @include md-tablet {
       display: block;
@@ -328,6 +334,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity $transition-normal, visibility $transition-normal;
+    animation: fadeIn 0.3s ease-out;
     
     &.active {
       opacity: 1;
@@ -345,6 +352,7 @@
     box-shadow: $shadow-lg;
     transform: translateY(-100%);
     transition: transform $transition-normal;
+    animation: slideDown 0.4s ease-out;
     
     @include sm-tablet {
       padding: 30px $container-padding-sm;
@@ -378,7 +386,6 @@
     border: 2px solid $gray-light;
     border-radius: $border-radius-lg;
     outline: none;
-    transition: border-color $transition-fast;
     
     @include sm-tablet {
       font-size: 1.125rem;
@@ -401,7 +408,6 @@
     height: 50px;
     background: $gradient-bg;
     border-radius: $border-radius-lg;
-    transition: opacity $transition-fast;
     flex-shrink: 0;
     
     @include sm-tablet {
@@ -412,7 +418,6 @@
     img {
       width: 22px;
       height: 22px;
-      filter: brightness(0) invert(1);
       
       @include sm-tablet {
         width: 24px;

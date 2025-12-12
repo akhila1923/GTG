@@ -52,6 +52,11 @@
   &__item {
     text-align: center;
     transition: all $transition-normal;
+    animation: fadeInUp 0.6s ease-out;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
   }
   
   &__number {

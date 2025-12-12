@@ -37,6 +37,16 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  
+  // Lazy loading fade-in effect
+  &[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
 }
 
 a {
@@ -128,6 +138,10 @@ textarea {
     font-size: 1.138rem;
   }
   
+  &:active {
+    transform: translateY(1px);
+  }
+  
   &--primary {
     position: relative;
     background: $gradient-bg;
@@ -148,6 +162,9 @@ textarea {
     }
     
     &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      
       &::before {
         bottom: 0;
       }
@@ -162,6 +179,8 @@ textarea {
     &:hover {
       background-color: $dark-green-2;
       color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(1, 102, 48, 0.3);
     }
   }
   
@@ -171,6 +190,8 @@ textarea {
     
     &:hover {
       background-color: $gold-brown-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(101, 59, 9, 0.3);
     }
   }
 }

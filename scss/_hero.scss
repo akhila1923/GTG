@@ -12,6 +12,7 @@
   padding-top: 50px;
   background: linear-gradient(135deg, $dark-green-1 0%, $forest-green 100%);
   overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
   
   @include sm-tablet {
     min-height: 500px;
@@ -80,6 +81,7 @@
     max-width: 100%;
     order: 1;
     margin-top: 30px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
     
     @include sm-tablet {
       max-width: 550px;
@@ -164,6 +166,7 @@
     flex-wrap: wrap;
     gap: 25px;
     margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
     
     @include sm-tablet {
       gap: 35px;
@@ -178,9 +181,14 @@
   
   &__stat {
     text-align: center;
+    transition: transform $transition-fast;
     
     @include sm-tablet {
       text-align: left;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
     }
   }
   
@@ -219,6 +227,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
     
     .btn {
       padding: 7px 28px;

@@ -10,6 +10,9 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+// Animations (must be loaded before components)
+@use 'animations';
+
 // Base styles
 @use 'base';
 

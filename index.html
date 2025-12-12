@@ -45,7 +45,7 @@
         <ul class="header__nav-list">
           <li class="header__nav-item"><a href="#" class="header__nav-link">Home</a></li>
           <li class="header__nav-item header__nav-item--dropdown">
-            <a href="#" class="header__nav-link">Shop <img src="assets/down-arrow.png" alt="Dropdown arrow" class="header__dropdown-icon"></a>
+            <a href="#" class="header__nav-link">Shop <img src="assets/down-arrow.png" alt="Dropdown arrow" class="header__dropdown-icon" loading="eager"></a>
             <ul class="header__dropdown-menu">
               <li><a href="#" class="header__dropdown-link">All Products</a></li>
               <li><a href="#" class="header__dropdown-link">Single Subscription</a></li>
@@ -62,7 +62,7 @@
       
       <div class="header__actions">
         <button class="header__search" aria-label="Search">
-          <img src="assets/search.png" alt="Search icon">
+          <img src="assets/search.png" alt="Search icon" loading="eager">
         </button>
         <a href="#product" class="btn btn--primary header__shop-btn">Shop Now</a>
         <button class="header__hamburger" id="hamburger" aria-label="Open menu">
@@ -86,7 +86,7 @@
             autocomplete="off"
           >
           <button type="submit" class="header__search-submit" aria-label="Submit search">
-            <img src="assets/search.png" alt="Search icon">
+            <img src="assets/search.png" alt="Search icon" loading="eager">
           </button>
         </form>
       </div>
@@ -96,7 +96,7 @@
   <!-- Hero Section -->
   <section class="hero hero--light">
     <div class="hero__background">
-      <img src="assets/banner.png" alt="GTG Perfumes - Premium Fragrances Banner">
+      <img src="assets/banner.png" alt="GTG Perfumes - Premium Fragrances Banner" loading="eager">
     </div>
     <div class="hero__container">
       <div class="hero__content">
@@ -135,7 +135,7 @@
         <!-- Gallery -->
         <div class="product__gallery">
           <div class="product__main-image">
-            <img src="assets/perfume-main.png" alt="GTG Perfume" id="main-product-image">
+            <img src="assets/perfume-main.png" alt="GTG Perfume" id="main-product-image" loading="eager">
             <button class="product__nav-arrow product__nav-arrow--prev" id="gallery-prev" aria-label="Previous image">
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.9674 5.67325H3.10408L7.63458 1.14276L6.48372 0L0 6.48372L6.48372 12.9674L7.62647 11.8247L3.10408 7.29418H12.9674V5.67325Z" fill="#032E15"/>
@@ -155,28 +155,28 @@
           </div>
           <div class="product__thumbnails" id="thumbnails">
             <div class="product__thumbnail" data-index="0">
-              <img src="assets/perfume-sample-1.jpg" alt="Thumbnail 1">
+              <img src="assets/perfume-sample-1.jpg" alt="Thumbnail 1" loading="eager">
             </div>
             <div class="product__thumbnail" data-index="1">
-              <img src="assets/perfume-sample-2.jpg" alt="Thumbnail 2">
+              <img src="assets/perfume-sample-2.jpg" alt="Thumbnail 2" loading="eager">
             </div>
             <div class="product__thumbnail" data-index="2">
-              <img src="assets/perfume-sample-3.jpg" alt="Thumbnail 3">
+              <img src="assets/perfume-sample-3.jpg" alt="Thumbnail 3" loading="lazy">
             </div>
             <div class="product__thumbnail" data-index="3">
-              <img src="assets/perfume-sample-4.jpg" alt="Thumbnail 4">
+              <img src="assets/perfume-sample-4.jpg" alt="Thumbnail 4" loading="lazy">
             </div>
             <div class="product__thumbnail" data-index="4">
-              <img src="assets/perfume-sample-1.jpg" alt="Thumbnail 5">
+              <img src="assets/perfume-sample-1.jpg" alt="Thumbnail 5" loading="lazy">
             </div>
             <div class="product__thumbnail" data-index="5">
-              <img src="assets/perfume-sample-2.jpg" alt="Thumbnail 6">
+              <img src="assets/perfume-sample-2.jpg" alt="Thumbnail 6" loading="lazy">
             </div>
             <div class="product__thumbnail" data-index="6">
-              <img src="assets/perfume-sample-3.jpg" alt="Thumbnail 7">
+              <img src="assets/perfume-sample-3.jpg" alt="Thumbnail 7" loading="lazy">
             </div>
             <div class="product__thumbnail" data-index="7">
-              <img src="assets/perfume-sample-4.jpg" alt="Thumbnail 8">
+              <img src="assets/perfume-sample-4.jpg" alt="Thumbnail 8" loading="lazy">
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@
                           </span>
                           <span class="product__fragrance-name">Original</span>
                         </div>
-                        <img src="assets/perfume-1.png" alt="Original">
+                        <img src="assets/perfume-1.png" alt="Original" loading="lazy">
                       </label>
                       <label class="product__fragrance-option">
                         <div class="radio-wrapper">
@@ -252,7 +252,7 @@
                           </span>
                           <span class="product__fragrance-name">Lily</span>
                         </div>
-                        <img src="assets/perfume-2.png" alt="Lily">
+                        <img src="assets/perfume-2.png" alt="Lily" loading="lazy">
                       </label>
                       <label class="product__fragrance-option">
                         <div class="radio-wrapper">
@@ -262,7 +262,7 @@
                           </span>
                           <span class="product__fragrance-name">Rose</span>
                         </div>
-                        <img src="assets/perfume-3.png" alt="Rose">
+                        <img src="assets/perfume-3.png" alt="Rose" loading="lazy">
                       </label>
                     </div>
                   </div>
@@ -274,15 +274,15 @@
                       <div class="product__included-box">
                         <span class="product__included-label">Every 30 Days</span>
                         <div class="product__included-images product__included-images--single">
-                          <img src="assets/perfume-1.png" alt="Monthly Bottle">
+                          <img src="assets/perfume-1.png" alt="Monthly Bottle" loading="lazy">
                         </div>
                       </div>
                       <div class="product__included-box">
                         <span class="product__included-label">One Time <strong>(Free)</strong></span>
                         <div class="product__included-images product__included-images--multiple">
-                          <img src="assets/perfume-1.png" alt="Sample 1">
-                          <img src="assets/perfume-2.png" alt="Sample 2">
-                          <img src="assets/perfume-3.png" alt="Sample 3">
+                          <img src="assets/perfume-1.png" alt="Sample 1" loading="lazy">
+                          <img src="assets/perfume-2.png" alt="Sample 2" loading="lazy">
+                          <img src="assets/perfume-3.png" alt="Sample 3" loading="lazy">
                         </div>
                       </div>
                     </div>
@@ -291,23 +291,23 @@
                   <!-- Benefits List -->
                   <ul class="product__benefits">
                     <li>
-                      <img src="assets/SealCheck.png" alt="Check">                                                                      
+                      <img src="assets/SealCheck.png" alt="Check" loading="lazy">                                                                      
                       <span>1 Bottle Shipped Monthly</span>
                     </li>
                     <li>
-                      <img src="assets/SealCheck.png" alt="Check">                                                                      
+                      <img src="assets/SealCheck.png" alt="Check" loading="lazy">                                                                      
                       <span><strong>Free</strong> Sampler For Original, Lily And Rose Fragrances</span>
                     </li>
                     <li>
-                      <img src="assets/SealCheck.png" alt="Check"> 
+                      <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                       <span><strong>50% OFF Shipping</strong></span>
                     </li>
                     <li>
-                      <img src="assets/SealCheck.png" alt="Check"> 
+                      <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                       <span>Pause Or Cancel Anytime After 3 Months Minimum</span>
                     </li>
                     <li>
-                      <img src="assets/SealCheck.png" alt="Check"> 
+                      <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                       <span>28 Day Money Back Guarantee*</span>
                     </li>
                   </ul>
@@ -343,7 +343,7 @@
                         </span>
                         <span class="product__fragrance-name">Original</span>
                       </div>
-                      <img src="assets/perfume-1.png" alt="Original">
+                      <img src="assets/perfume-1.png" alt="Original" loading="lazy">
                     </label>
                     <label class="product__fragrance-option">
                       <div class="radio-wrapper">
@@ -353,7 +353,7 @@
                         </span>
                         <span class="product__fragrance-name">Lily</span>
                       </div>
-                      <img src="assets/perfume-2.png" alt="Lily">
+                      <img src="assets/perfume-2.png" alt="Lily" loading="lazy">
                     </label>
                     <label class="product__fragrance-option">
                       <div class="radio-wrapper">
@@ -363,7 +363,7 @@
                         </span>
                         <span class="product__fragrance-name">Rose</span>
                       </div>
-                      <img src="assets/perfume-3.png" alt="Rose">
+                      <img src="assets/perfume-3.png" alt="Rose" loading="lazy">
                     </label>
                   </div>
                 </div>
@@ -379,7 +379,7 @@
                         </span>
                         <span class="product__fragrance-name">Original</span>
                       </div>
-                      <img src="assets/perfume-1.png" alt="Original">
+                      <img src="assets/perfume-1.png" alt="Original" loading="lazy">
                     </label>
                     <label class="product__fragrance-option">
                       <div class="radio-wrapper">
@@ -389,7 +389,7 @@
                         </span>
                         <span class="product__fragrance-name">Lily</span>
                       </div>
-                      <img src="assets/perfume-2.png" alt="Lily">
+                      <img src="assets/perfume-2.png" alt="Lily" loading="lazy">
                     </label>
                     <label class="product__fragrance-option">
                       <div class="radio-wrapper">
@@ -399,7 +399,7 @@
                         </span>
                         <span class="product__fragrance-name">Rose</span>
                       </div>
-                      <img src="assets/perfume-3.png" alt="Rose">
+                      <img src="assets/perfume-3.png" alt="Rose" loading="lazy">
                     </label>
                   </div>
                 </div>
@@ -408,18 +408,18 @@
                 <div class="product__included">
                   <span class="product__included-title">What's Included:</span>
                   <div class="product__included-boxes">
-                    <div class="product__included-box">
+                      <div class="product__included-box">
                       <span class="product__included-label">Every 30 Days</span>
                       <div class="product__included-images product__included-images--single">
-                        <img src="assets/perfume-1.png" alt="Monthly Bottle 1">
+                        <img src="assets/perfume-1.png" alt="Monthly Bottle 1" loading="lazy">
                       </div>
                     </div>
                     <div class="product__included-box">
                       <span class="product__included-label">One Time <strong>(Free)</strong></span>
                       <div class="product__included-images product__included-images--multiple">
-                        <img src="assets/perfume-1.png" alt="Sample 1">
-                        <img src="assets/perfume-2.png" alt="Sample 2">
-                        <img src="assets/perfume-3.png" alt="Sample 3">
+                        <img src="assets/perfume-1.png" alt="Sample 1" loading="lazy">
+                        <img src="assets/perfume-2.png" alt="Sample 2" loading="lazy">
+                        <img src="assets/perfume-3.png" alt="Sample 3" loading="lazy">
                       </div>
                     </div>
                   </div>
@@ -428,23 +428,23 @@
                 <!-- Benefits List -->
                 <ul class="product__benefits">
                   <li>
-                    <img src="assets/SealCheck.png" alt="Check"> 
+                    <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                     <span>1 Bottles Shipped Monthly</span>
                   </li>
                   <li>
-                    <img src="assets/SealCheck.png" alt="Check">
+                    <img src="assets/SealCheck.png" alt="Check" loading="lazy">
                     <span><strong>Free</strong> Sampler For Original, Lily And Rose Fragrances</span>
                   </li>
                   <li>
-                    <img src="assets/SealCheck.png" alt="Check"> 
+                    <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                     <span><strong>50% OFF Shipping </strong></span>
                   </li>
                   <li>
-                    <img src="assets/SealCheck.png" alt="Check"> 
+                    <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                     <span>Pause Or Cancel Anytime After 3 Months Minimum</span>
                   </li>
                   <li>
-                    <img src="assets/SealCheck.png" alt="Check"> 
+                    <img src="assets/SealCheck.png" alt="Check" loading="lazy"> 
                     <span>28 Day Money Back Guarantee*</span>
                   </li>
                 </ul>
@@ -550,7 +550,7 @@
         
         <!-- Right Side - Image -->
         <div class="collection__image">
-          <img src="assets/pexels-cottonbro.png" alt="Our Collection">
+          <img src="assets/pexels-cottonbro.png" alt="Our Collection" loading="lazy">
         </div>
       </div>
     </div>
@@ -597,25 +597,25 @@
               <th class="why__table-header why__table-header--label">Qualities</th>
               <th class="why__table-header why__table-header--gtg why__table-cell--gtg">
                 <div class="why__brand-card why__brand-card--gtg">
-                  <img src="assets/perfume-sample-5.jpg" alt="GTG">
+                  <img src="assets/perfume-sample-5.jpg" alt="GTG" loading="lazy">
                 </div>
                 <span>GTG</span>
               </th>
               <th class="why__table-header">
                 <div class="why__brand-card">
-                  <img src="assets/perfume-sample-1.jpg" alt="Arose">
+                  <img src="assets/perfume-sample-1.jpg" alt="Arose" loading="lazy">
                 </div>
                 <span>Arose</span>
               </th>
               <th class="why__table-header">
                 <div class="why__brand-card">
-                  <img src="assets/perfume-sample-3.jpg" alt="Bella">
+                  <img src="assets/perfume-sample-3.jpg" alt="Bella" loading="lazy">
                 </div>
                 <span>Bella</span>
               </th>
               <th class="why__table-header">
                 <div class="why__brand-card">
-                  <img src="assets/perfume-sample-4.jpg" alt="Daisies">
+                  <img src="assets/perfume-sample-4.jpg" alt="Daisies" loading="lazy">
                 </div>
                 <span>Daisies</span>
               </th>

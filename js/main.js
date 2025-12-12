@@ -14,6 +14,7 @@ function initializeAll() {
   initStatsCounter();
   initSmoothScroll();
   initCollectionAccordion();
+  initLazyLoading();
 }
 
 // Initialize on DOM ready
@@ -722,6 +723,59 @@ function initCollectionAccordion() {
 })();
 
 // ============================================
+// 10. Lazy Loading for Images
+// ============================================
+function initLazyLoading() {
+  // Check if IntersectionObserver is supported
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: Load all images immediately if IntersectionObserver is not supported
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+      }
+    });
+    return;
+  }
+
+  // Create IntersectionObserver for lazy loading
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        
+        // If image has data-src, use it (for more advanced lazy loading)
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        
+        // Remove loading="lazy" after image is loaded to prevent re-observation
+        img.removeAttribute('loading');
+        
+        // Add a class when image is loaded for fade-in effect
+        img.addEventListener('load', function() {
+          img.classList.add('loaded');
+        }, { once: true });
+        
+        // Stop observing this image
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    // Start loading images when they're 100px away from viewport
+    rootMargin: '100px 0px',
+    threshold: 0.01
+  });
+
+  // Observe all images with loading="lazy"
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  lazyImages.forEach(img => {
+    imageObserver.observe(img);
+  });
+}
+
+// ============================================
 // Utility: Add CSS keyframes for animations
 // ============================================
 (function() {
@@ -736,6 +790,16 @@ function initCollectionAccordion() {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+    
+    /* Lazy loading fade-in effect */
+    img[loading="lazy"] {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+    
+    img[loading="lazy"].loaded {
+      opacity: 1;
     }
   `;
   document.head.appendChild(style);

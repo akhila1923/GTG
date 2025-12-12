@@ -9,6 +9,7 @@
   position: relative;
   padding: 40px 0;
   background-color: $white;
+  animation: fadeIn 0.8s ease-out;
   
   @include sm-tablet {
     padding: 60px 0;
@@ -238,6 +239,12 @@
     height: 27.8px;
     border-radius: 50%;
     border: 1px solid $charcoal;
+    transition: all $transition-fast;
+    animation: scaleIn 0.4s ease-out;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   
   &__cta {
